@@ -3,24 +3,9 @@ export const Config = {
 };
 
 export const Routes = {
-  Auth: {
-    LOGIN: '/api/auth/login',
-    REGISTER: '/api/auth/register'
-  },
-  Order: {
-    _: '/api/order'
-  },
-  Category: {
-    _: '/api/category',
-    _ID: '/api/category/:id',
-  },
-  Position: {
-    _: '/api/position',
-    _CATEGORY: '/api/position/:category',
-    _ID: '/api/position/:id'
-  },
-  Analytics: {
-    OVERVIEW: '/api/analytics/overview',
-    ANALYTICS: '/api/analytics/analytics'
-  }
+  AUTH: '/api/auth',
+  ORDER: '/api/order',
+  CATEGORY: '/api/category',
+  POSITION: '/api/position',
+  ANALYTICS: '/api/analytics'
 };
