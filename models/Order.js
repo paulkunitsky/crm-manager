@@ -1,4 +1,6 @@
-import {Schema, model} from 'mongoose';
+import mongoose from 'mongoose';
+const Schema = mongoose.Schema;
+const model = mongoose.model;
 import {Collections} from '../constants';
 
 export const OrderSchema = new Schema({

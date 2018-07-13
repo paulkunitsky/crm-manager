@@ -1,4 +1,6 @@
-import {Schema, model} from 'mongoose';
+import mongoose from 'mongoose';
+const Schema = mongoose.Schema;
+const model = mongoose.model;
 import {Collections} from '../constants';
 
 export const CategorySchema = new Schema({
@@ -7,12 +9,12 @@ export const CategorySchema = new Schema({
     required: true
   },
   imageSrc: {
-    type: string,
+    type: String,
     default: ''
   },
   user: {
     ref: Collections.USERS,
-    type: ObjectId
+    type: Schema.Types.ObjectId
   }
 });
 

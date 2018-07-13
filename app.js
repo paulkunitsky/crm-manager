@@ -1,11 +1,21 @@
 import express from 'express';
-import {setupRoutes} from './setup/setup-routes';
+import mongoose from 'mongoose';
+import {setupMongoose} from './setup/setup-mongoose';
 import {setupMiddleware} from './setup/setup-middleware';
+import {setupRoutes} from './setup/setup-routes';
 import {Config} from './constants';
+import Promise from 'bluebird';
 
-const app = express();
+const app = Promise.promisifyAll(express());
 
+console.log('#######################')
+
+setupMongoose();
 setupMiddleware(app);
 setupRoutes(app);
 
-app.listen(Config.PORT, () => console.log(`app running on port ${Config.PORT}`));
+mongoose
+  .connect(Config.MONGO_URI, { useNewUrlParser: true })
+  .then(() => app.listenAsync(Config.PORT))
+  .then(() => console.log(`app running on port ${Config.PORT}`))
+  .catch(err => console.log(err));
