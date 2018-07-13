@@ -9,3 +9,10 @@ export const Routes = {
   POSITION: '/api/position',
   ANALYTICS: '/api/analytics'
 };
+
+export const Collections = {
+  CATEGORIES: 'categories',
+  POSITIONS: 'positions',
+  USERS: 'users',
+  ORDERS: 'orders'
+};

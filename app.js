@@ -5,7 +5,7 @@ import {Config} from './constants';
 
 const app = express();
 
-setupRoutes(app);
 setupMiddleware(app);
+setupRoutes(app);
 
 app.listen(Config.PORT, () => console.log(`app running on port ${Config.PORT}`));
