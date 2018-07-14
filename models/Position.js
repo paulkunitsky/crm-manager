@@ -1,9 +1,8 @@
-import mongoose from 'mongoose';
-const Schema = mongoose.Schema;
-const model = mongoose.model;
-import {Collections} from '../constants';
+const mongoose = require('mongoose');
+const {Collections} = require('../constants');
+const {Types} = mongoose.Schema;
 
-export const PositionSchema = new Schema({
+const PositionSchema = mongoose.Schema({
   name: {
     type: String,
     required: true
@@ -14,12 +13,12 @@ export const PositionSchema = new Schema({
   },
   category: {
     ref: 'categories',
-    type: Schema.Types.ObjectId
+    type: Types.ObjectId
   },
   user: {
     ref: 'users',
-    type: Schema.Types.ObjectId
+    type: Types.ObjectId
   }
 });
 
-export const Position = model(Collections.POSITIONS, PositionSchema);
+const Position = mongoose.model(Collections.POSITIONS, PositionSchema);

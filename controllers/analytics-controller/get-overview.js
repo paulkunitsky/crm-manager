@@ -1,2 +1,2 @@
-export function getOverview(req, res) {
-}
+module.exports.getOverview = function (req, res) {
+};

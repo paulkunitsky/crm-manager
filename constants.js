@@ -1,9 +1,10 @@
-export const Config = {
+module.exports.Config = {
   PORT: process.env.PORT || 3000,
-  MONGO_URI: 'mongodb://admin:admin123@ds235711.mlab.com:35711/mean-crm'
+  MONGO_URI: 'mongodb://admin:admin123@ds235711.mlab.com:35711/mean-crm',
+  JWT_KEY: 'random key'
 };
 
-export const Routes = {
+module.exports.Routes = {
   AUTH: '/api/auth',
   ORDER: '/api/order',
   CATEGORY: '/api/category',
@@ -11,7 +12,7 @@ export const Routes = {
   ANALYTICS: '/api/analytics'
 };
 
-export const Collections = {
+module.exports.Collections = {
   CATEGORIES: 'categories',
   POSITIONS: 'positions',
   USERS: 'users',

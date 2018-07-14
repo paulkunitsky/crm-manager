@@ -1,9 +1,9 @@
-import {deletePosition} from '../controllers/position-controller/delete-position';
-import {patchPosition} from '../controllers/position-controller/patch-position';
-import {getCategory} from '../controllers/category-controller/get-category';
-import {postPosition} from '../controllers/position-controller/post-position';
+const { deletePosition } = require('../controllers/position-controller/delete-position');
+const { patchPosition } = require('../controllers/position-controller/patch-position');
+const { getCategory } = require('../controllers/category-controller/get-category');
+const { postPosition } = require('../controllers/position-controller/post-position');
 
-export function getPositionRouter(express) {
+module.exports.getPositionRouter = function (express) {
   const router = express.Router();
 
   router.route('/')
@@ -17,4 +17,4 @@ export function getPositionRouter(express) {
     .get(getCategory);
 
   return router;
-}
+};

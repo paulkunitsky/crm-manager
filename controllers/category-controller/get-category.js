@@ -1,2 +1,2 @@
-export function getCategory(req, res) {
+module.exports.getCategory = function (req, res) {
 }

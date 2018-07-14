@@ -1,10 +1,10 @@
-import {patchCategory} from '../controllers/category-controller/patch-category';
-import {deleteCategory} from '../controllers/category-controller/delete-category';
-import {getCategory} from '../controllers/category-controller/get-category';
-import {postCategory} from '../controllers/category-controller/post-category';
-import {getCategories} from '../controllers/category-controller/get-categories';
+const { patchCategory } = require('../controllers/category-controller/patch-category');
+const { deleteCategory } = require('../controllers/category-controller/delete-category');
+const { getCategory } = require('../controllers/category-controller/get-category');
+const { postCategory } = require('../controllers/category-controller/post-category');
+const { getCategories } = require('../controllers/category-controller/get-categories');
 
-export function getCategoryRouter(express) {
+module.exports.getCategoryRouter = function (express) {
   const router = express.Router();
 
   router.route('/')
@@ -17,4 +17,4 @@ export function getCategoryRouter(express) {
     .patch(patchCategory);
 
   return router;
-}
+};

@@ -1,2 +1,2 @@
-export function patchPosition(req, res) {
+module.exports.patchPosition = function (req, res) {
 }

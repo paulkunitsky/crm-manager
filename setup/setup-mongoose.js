@@ -1,10 +1,8 @@
-import Promise from 'bluebird';
-import mongoose from 'mongoose';
-import '../models/Category';
-import '../models/Order';
-import '../models/Position';
-import '../models/User';
-
-export function setupMongoose() {
+module.exports.setupMongoose = function (mongoose) {
+  const Promise = require('bluebird');
+  require('../models/Category');
+  require('../models/Order');
+  require('../models/Position');
+  require('../models/User');
   mongoose.Promise = Promise;
-}
+};

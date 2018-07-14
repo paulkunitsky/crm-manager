@@ -1,2 +1,2 @@
-export function getAnalytics(req, res) {
+module.exports.getAnalytics = function (req, res) {
 }

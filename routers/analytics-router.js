@@ -1,11 +1,11 @@
-import {getOverview} from '../controllers/analytics-controller/get-overview';
-import {getAnalytics} from '../controllers/analytics-controller/get-analytics';
+const { getOverview } = require('../controllers/analytics-controller/get-overview');
+const { getAnalytics } = require('../controllers/analytics-controller/get-analytics');
 
-export function getAnalyticsRouter(express) {
+module.exports.getAnalyticsRouter = function (express) {
   const router = express.Router();
 
   router.get('/overview', getOverview);
   router.get('/analytics', getAnalytics);
 
   return router;
-}
+};

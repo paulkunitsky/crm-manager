@@ -1,2 +1,2 @@
-export function deletePosition(req, res) {
+module.exports.deletePosition = function (req, res) {
 }

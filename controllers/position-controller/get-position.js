@@ -1,2 +1,2 @@
-export function getPosition(req, res) {
+module.exports.getPosition = function (req, res) {
 }

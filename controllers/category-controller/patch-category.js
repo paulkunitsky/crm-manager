@@ -1,2 +1,2 @@
-export function patchCategory(req, res) {
+module.exports.patchCategory = function (req, res) {
 }

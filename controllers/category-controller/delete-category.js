@@ -1,2 +1,2 @@
-export function deleteCategory(req, res) {
+module.exports.deleteCategory = function (req, res) {
 }

@@ -1,9 +1,8 @@
-import mongoose from 'mongoose';
-const Schema = mongoose.Schema;
-const model = mongoose.model;
-import {Collections} from '../constants';
+const mongoose = require('mongoose');
+const {Collections} = require('../constants');
+const {Types} = mongoose.Schema;
 
-export const CategorySchema = new Schema({
+const CategorySchema = mongoose.Schema({
   name: {
     type: String,
     required: true
@@ -14,8 +13,8 @@ export const CategorySchema = new Schema({
   },
   user: {
     ref: Collections.USERS,
-    type: Schema.Types.ObjectId
+    type: Types.ObjectId
   }
 });
 
-export const Category = model(Collections.CATEGORIES, CategorySchema);
+const Category = mongoose.model(Collections.CATEGORIES, CategorySchema);

@@ -1,3 +1,3 @@
-export function postOrder(req, res) {
+module.exports.postOrder = function (req, res) {
 
 }

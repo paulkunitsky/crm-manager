@@ -1,7 +1,7 @@
-import {postOrder} from '../controllers/order-controller/post-order';
-import {getOrder} from '../controllers/order-controller/get-order';
+const { postOrder } = require('../controllers/order-controller/post-order');
+const { getOrder } = require('../controllers/order-controller/get-order');
 
-export function getOrderRouter(express) {
+module.exports.getOrderRouter = function (express) {
   const router = express.Router();
 
   router.route('/')
@@ -9,4 +9,4 @@ export function getOrderRouter(express) {
     .post(postOrder);
 
   return router;
-}
+};

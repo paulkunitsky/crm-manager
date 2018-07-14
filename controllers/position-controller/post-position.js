@@ -1,2 +1,2 @@
-export function postPosition(req, res) {
+module.exports.postPosition = function (req, res) {
 }

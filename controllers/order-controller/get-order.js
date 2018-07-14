@@ -1,3 +1,3 @@
-export function getOrder(req, res) {
+module.exports.getOrder = function (req, res) {
 
 }

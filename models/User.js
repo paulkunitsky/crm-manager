@@ -1,9 +1,8 @@
-import mongoose from 'mongoose';
-const Schema = mongoose.Schema;
-const model = mongoose.model;
-import {Collections} from '../constants';
+const mongoose = require('mongoose');
+const {Collections} = require('../constants');
+const {Types} = mongoose.Schema;
 
-export const UserSchema = new Schema({
+const UserSchema = mongoose.Schema({
   email: {
     type: String,
     required: true,
@@ -15,4 +14,4 @@ export const UserSchema = new Schema({
   }
 });
 
-export const User = model(Collections.USERS, UserSchema);
+const User = mongoose.model(Collections.USERS, UserSchema);

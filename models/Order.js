@@ -1,9 +1,8 @@
-import mongoose from 'mongoose';
-const Schema = mongoose.Schema;
-const model = mongoose.model;
-import {Collections} from '../constants';
+const mongoose = require('mongoose');
+const {Collections} = require('../constants');
+const {Types} = mongoose.Schema;
 
-export const OrderSchema = new Schema({
+const OrderSchema = mongoose.Schema({
   date: {
     type: Date,
     default: Date.now
@@ -21,8 +20,8 @@ export const OrderSchema = new Schema({
   ],
   user: {
     ref: Collections.USERS,
-    type: Schema.Types.ObjectId
+    type: Types.ObjectId
   }
 });
 
-export const Order = model(Collections.ORDERS, OrderSchema);
+const Order = mongoose.model(Collections.ORDERS, OrderSchema);
