@@ -1,14 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const {setupMongoose} = require('./setup/setup-mongoose');
-const {setupMiddleware} = require('./setup/setup-global-middleware');
+const {setupGlobalMiddleware} = require('./setup/setup-global-middleware');
 const {setupRoutes} = require('./setup/setup-routes');
 const {Config} = require('./constants');
 const Promise = require('bluebird');
 const app = Promise.promisifyAll(express());
 
 setupMongoose(mongoose);
-setupMiddleware(app);
+setupGlobalMiddleware(app);
 setupRoutes(app);
 
 mongoose.connect(Config.MONGO_URI, { useNewUrlParser: true })

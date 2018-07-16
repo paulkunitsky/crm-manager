@@ -1,4 +1,4 @@
-module.exports.setupMiddleware = function (app) {
+module.exports.setupGlobalMiddleware = function (app) {
   const path = require('path');
   const express = require('express');
   const bodyParser = require('body-parser');
