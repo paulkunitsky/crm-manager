@@ -11,7 +11,7 @@ const CategorySchema = mongoose.Schema({
     type: String,
     default: ''
   },
-  user: {
+  userId: {
     ref: Collections.USERS,
     type: Types.ObjectId
   }

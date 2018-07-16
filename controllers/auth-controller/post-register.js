@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
+const {handleError} = require('../../utils');
 const {Collections} = require('../../constants');
 const User = mongoose.model(Collections.USERS);
 
@@ -21,8 +22,8 @@ module.exports.postRegister = async function (req, res) {
     try {
       await user.save();
       res.status(201).json(user);
-    } catch (err) {
-      // TODO
+    } catch (error) {
+      handleError(res, error);
     }
   }
 

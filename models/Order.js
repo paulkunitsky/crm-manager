@@ -18,7 +18,7 @@ const OrderSchema = mongoose.Schema({
       cost: Number
     }
   ],
-  user: {
+  userId: {
     ref: Collections.USERS,
     type: Types.ObjectId
   }

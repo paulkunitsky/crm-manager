@@ -11,11 +11,11 @@ const PositionSchema = mongoose.Schema({
     type: Number,
     required: true
   },
-  category: {
+  categoryId: {
     ref: 'categories',
     type: Types.ObjectId
   },
-  user: {
+  userId: {
     ref: 'users',
     type: Types.ObjectId
   }
