@@ -21,4 +21,4 @@ const limits = {
   fileSize: 1024 * 1024 * 5
 };
 
-module.exports.fileUpload = multer({storage: storage, fileFilter: fileFilter, limits: limits});
+module.exports.fileUploadMiddleware = multer({storage: storage, fileFilter: fileFilter, limits: limits});

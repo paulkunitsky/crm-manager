@@ -1,5 +1,5 @@
-const {fileUpload} = require('../middleware/file-upload');
-const {authRequiredPolicy} = require('../policies/auth-required-policy');
+const {fileUploadMiddleware} = require('../middleware/file-upload-middleware');
+const {authRequiredMiddleware} = require('../middleware/auth-required-middleware');
 const {patchCategory} = require('../controllers/category-controller/patch-category');
 const {deleteCategory} = require('../controllers/category-controller/delete-category');
 const {getCategory} = require('../controllers/category-controller/get-category');
@@ -10,13 +10,13 @@ module.exports.getCategoryRouter = function (express) {
   const router = express.Router();
 
   router.route('/')
-    .get(authRequiredPolicy, getCategories)
-    .post(authRequiredPolicy, fileUpload.single('image'), postCategory);
+    .get(authRequiredMiddleware, getCategories)
+    .post(authRequiredMiddleware, fileUploadMiddleware.single('image'), postCategory);
 
   router.route('/:id')
-    .get(authRequiredPolicy, getCategory)
-    .delete(authRequiredPolicy, deleteCategory)
-    .patch(authRequiredPolicy, fileUpload.single('image'), patchCategory);
+    .get(authRequiredMiddleware, getCategory)
+    .delete(authRequiredMiddleware, deleteCategory)
+    .patch(authRequiredMiddleware, fileUploadMiddleware.single('image'), patchCategory);
 
   return router;
 };

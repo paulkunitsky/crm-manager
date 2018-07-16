@@ -23,4 +23,4 @@ passport.use(new JwtStrategy(options, async (payload, done) => {
 
 }));
 
-module.exports = passport;
+module.exports.passportMiddleware = passport;
