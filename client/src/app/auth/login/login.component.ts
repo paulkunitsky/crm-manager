@@ -16,7 +16,11 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  onSubmit() {
+  onSubmit(event) {
+  }
+
+  onInit() {
+    console.log('INIT');
   }
 
 }

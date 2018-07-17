@@ -1,0 +1,3 @@
+<div class="panel">
+  <div class="panel__item" [class.active]="tab.active" *ngFor="let tab of tabs" (click)="changeTab(tab.name)"><ng-container *ngTemplateOutlet="tab.templateRef"></ng-container></div>
+</div>
