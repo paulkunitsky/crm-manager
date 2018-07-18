@@ -12,6 +12,8 @@ export class MainComponent implements OnInit {
 
   @ViewChild('floatingButton') floatingButtonRef: ElementRef;
 
+  MainRoutes = MainRoutes;
+
   links = [
     {path: MainRoutes.OVERVIEW, text: 'Обзор'},
     {path: MainRoutes.ANALYTICS, text: 'Аналитика'},
