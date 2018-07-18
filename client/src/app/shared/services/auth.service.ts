@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
-import {User} from '../shared/models';
+import {User} from '../models';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Rx';
 import {tap} from 'rxjs/operators';
-import {LocalStorageService} from '../shared/services/local-storage.service';
+import {LocalStorageService} from './local-storage.service';
 
 function handleError(err) {
   return Observable.throw(err.error.message);

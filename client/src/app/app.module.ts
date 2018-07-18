@@ -4,6 +4,9 @@ import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import {LocalStorageService} from './shared/services/local-storage.service';
 import {HttpClientModule} from '@angular/common/http';
+import {AuthService} from './shared/services/auth.service';
+import {AuthGuardService} from './shared/services/auth-guard.service';
+import {HttpInterceptorsModule} from './shared/modules/http-interceptors/http-interceptors.module';
 
 @NgModule({
   declarations: [
@@ -13,9 +16,12 @@ import {HttpClientModule} from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    HttpInterceptorsModule
   ],
   providers: [
-    LocalStorageService
+    LocalStorageService,
+    AuthService,
+    AuthGuardService,
   ],
   bootstrap: [AppComponent]
 })
