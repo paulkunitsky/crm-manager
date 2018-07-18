@@ -2,13 +2,18 @@ import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
 import {Routes} from '@angular/router';
 
-export const AppRoutes: Routes = [
-  {path: 'auth', loadChildren: './auth/auth.module#AuthModule'},
+export enum AppRoutes {
+  AUTH = 'auth',
+  OVERVIEW ='overview'
+}
+
+const routes: Routes = [
+  {path: AppRoutes.AUTH, loadChildren: './auth/auth.module#AuthModule'},
   {path: '**', redirectTo: 'auth'}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(AppRoutes)],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

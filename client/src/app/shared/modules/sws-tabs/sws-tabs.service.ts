@@ -26,8 +26,7 @@ export class SwsTabsService {
 
   changeTabByName(name) {
     const tabs = this.tabs.getValue();
-    for (const tab of this.tabs) {
-      tab.
+    for (const tab of tabs) {
     }
   }
 

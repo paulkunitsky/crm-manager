@@ -7,21 +7,23 @@ import {AuthComponent} from './auth.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {SwsTabsModule} from '../shared/modules/sws-tabs/sws-tabs.module';
 import {TestComponent} from './test/test.component';
+import {AuthService} from './auth.service';
 
 @NgModule({
   imports: [
     CommonModule,
     AuthRoutingModule,
     ReactiveFormsModule,
-    SwsTabsModule
-    // FormsModule,
-    // HttpClientModule
+    SwsTabsModule,
   ],
   declarations: [
     LoginComponent,
     RegisterComponent,
     AuthComponent,
     TestComponent
+  ],
+  providers: [
+    AuthService
   ]
 })
 export class AuthModule {

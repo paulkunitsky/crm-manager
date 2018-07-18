@@ -5,16 +5,22 @@ import {LoginComponent} from './login/login.component';
 import {AuthComponent} from './auth.component';
 import {TestComponent} from './test/test.component';
 
+export enum AuthRoutes {
+  LOGIN = 'login',
+  REGISTER = 'register',
+  TEST = 'test'
+}
+
 const routes: Routes = [
   {
     path: '', component: AuthComponent, children: [
-      {path: '', redirectTo: 'test'},
-      {path: 'login', component: LoginComponent},
-      {path: 'register', component: RegisterComponent},
-      {path: 'test', component: TestComponent}
+      {path: '', redirectTo: AuthRoutes.LOGIN},
+      {path: AuthRoutes.LOGIN, component: LoginComponent},
+      {path: AuthRoutes.REGISTER, component: RegisterComponent},
+      {path: AuthRoutes.TEST, component: TestComponent}
     ]
   },
-  {path: '**', redirectTo: 'login'}
+  {path: '**', redirectTo: AuthRoutes.LOGIN}
 ];
 
 @NgModule({

@@ -9,7 +9,7 @@ module.exports.postRegister = async function (req, res) {
   const candidate = await User.findOne({email: req.body.email});
 
   if (candidate) {
-    res.status(409).json({error: 'Пользователь с таким email уже зарегистрирован'});
+    res.status(409).json({message: 'Пользователь с таким email уже зарегистрирован'});
   } else {
     const salt = bcrypt.genSaltSync(10);
     const password = bcrypt.hashSync(req.body.password, salt);

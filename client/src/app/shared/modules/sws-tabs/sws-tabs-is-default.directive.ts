@@ -11,6 +11,6 @@ export class SwsTabsNameDirective {
   }
 
   ngOnInit() {
-    this.service.registerTab(this.name, this.templateRef);
+    // this.service.registerTab(this.name, this.templateRef);
   }
 }
