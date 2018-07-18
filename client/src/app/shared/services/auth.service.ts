@@ -4,6 +4,8 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Rx';
 import {tap} from 'rxjs/operators';
 import {LocalStorageService} from './local-storage.service';
+import {Router} from '@angular/router';
+import {AppRoutes, AuthRoutes} from '../constants';
 
 function handleError(err) {
   return Observable.throw(err.error.message);
@@ -15,6 +17,7 @@ export class AuthService {
   constructor(
     private http: HttpClient,
     private ls: LocalStorageService,
+    private router: Router
   ) {}
 
   login(user: User): Observable<any> {
@@ -22,7 +25,7 @@ export class AuthService {
       .post('/api/auth/login', user)
       .pipe(
         tap((res: any) => {
-          this.setToken(res.token);
+          this.ls.setItem(this.ls.keys.TOKEN, res.token);
         })
       )
       .catch(handleError);
@@ -34,10 +37,6 @@ export class AuthService {
       .catch(handleError);
   }
 
-  setToken(token): void {
-    this.ls.setItem(this.ls.keys.TOKEN, token);
-  }
-
   getToken(): string|null {
     return this.ls.getItem(this.ls.keys.TOKEN, null);
   }
@@ -46,8 +45,9 @@ export class AuthService {
     return !!this.getToken();
   }
 
-  logout(): void {
+  logout(): Promise<any> {
     this.ls.setItem(this.ls.keys.TOKEN, null);
+    return this.router.navigate([AppRoutes.AUTH, AuthRoutes.LOGIN]);
   }
 
 }

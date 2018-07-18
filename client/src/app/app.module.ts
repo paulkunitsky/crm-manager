@@ -7,10 +7,11 @@ import {HttpClientModule} from '@angular/common/http';
 import {AuthService} from './shared/services/auth.service';
 import {AuthGuardService} from './shared/services/auth-guard.service';
 import {HttpInterceptorsModule} from './shared/modules/http-interceptors/http-interceptors.module';
+import {MaterialService} from './shared/services/material.service';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -22,6 +23,7 @@ import {HttpInterceptorsModule} from './shared/modules/http-interceptors/http-in
     LocalStorageService,
     AuthService,
     AuthGuardService,
+    MaterialService
   ],
   bootstrap: [AppComponent]
 })

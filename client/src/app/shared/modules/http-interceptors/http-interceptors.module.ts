@@ -4,8 +4,8 @@ import {TokenInterceptorService} from './token-interceptor.service';
 
 @NgModule({
   providers: [
-    {provide: HTTP_INTERCEPTORS, multi: true, useClass: TokenInterceptorService}
-  ],
+    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true}
+  ]
 })
 export class HttpInterceptorsModule {
 }

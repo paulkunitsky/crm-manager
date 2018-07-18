@@ -2,8 +2,7 @@ import {ActivatedRouteSnapshot, CanActivate, CanActivateChild, Router, RouterSta
 import {Observable} from 'rxjs/Observable';
 import {Injectable} from '@angular/core';
 import {AuthService} from './auth.service';
-import {AppRoutes} from '../../app-routing.module';
-import {AuthRoutes} from '../../auth/auth-routing.module';
+import {AppRoutes, AuthRoutes} from '../constants';
 
 @Injectable()
 export class AuthGuardService implements CanActivate, CanActivateChild {

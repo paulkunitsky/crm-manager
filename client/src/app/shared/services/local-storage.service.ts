@@ -18,7 +18,7 @@ export class LocalStorageService {
    * @param {any} data
    */
   setItem(key: LocalStorageKeys, data: any): void {
-    localStorage.setItem(key, JSON.stringify(data));
+    localStorage.setItem(key, data !== undefined ? JSON.stringify(data) : null);
   }
 
   /**
@@ -28,8 +28,8 @@ export class LocalStorageService {
    * @returns {any}
    */
   getItem(key: LocalStorageKeys, defaultValue: any = null): any {
-    const value = JSON.parse(localStorage.getItem(key));
-    return value || defaultValue;
+    const value = localStorage.getItem(key);
+    return JSON.parse(value) || defaultValue;
   }
 
   /**

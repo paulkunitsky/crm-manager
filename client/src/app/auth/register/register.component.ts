@@ -3,7 +3,8 @@ import {AuthService} from '../../shared/services/auth.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Subscription} from 'rxjs/Subscription';
 import {Router} from '@angular/router';
-import {AuthRoutes} from '../auth-routing.module';
+import {MaterialService} from '../../shared/services/material.service';
+import {AuthRoutes} from '../../shared/constants';
 
 @Component({
   selector: 'app-register',
@@ -16,7 +17,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private service: AuthService,
-    private router: Router
+    private router: Router,
+    private material: MaterialService
   ) {
   }
 
@@ -33,8 +35,9 @@ export class RegisterComponent implements OnInit {
       .register(this.form.value)
       .subscribe(() => {
         this.router.navigate([AuthRoutes.LOGIN], {queryParams: {registered: true}});
-      }, () => {
+      }, (error) => {
         form.enable();
+        this.material.toast(error);
       });
   }
 

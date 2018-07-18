@@ -4,12 +4,7 @@ import {RegisterComponent} from './register/register.component';
 import {LoginComponent} from './login/login.component';
 import {AuthComponent} from './auth.component';
 import {TestComponent} from './test/test.component';
-
-export enum AuthRoutes {
-  LOGIN = 'login',
-  REGISTER = 'register',
-  TEST = 'test'
-}
+import {AuthRoutes} from '../shared/constants';
 
 const routes: Routes = [
   {

@@ -3,7 +3,8 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../shared/services/auth.service';
 import {Subscription} from 'rxjs/Subscription';
 import {ActivatedRoute, Router} from '@angular/router';
-import {AppRoutes} from '../../app-routing.module';
+import {MaterialService} from '../../shared/services/material.service';
+import {AppRoutes} from '../../shared/constants';
 
 @Component({
   selector: 'app-login',
@@ -17,8 +18,10 @@ export class LoginComponent implements OnInit {
   constructor(
     private service: AuthService,
     private router: Router,
-    private route: ActivatedRoute
-  ) {}
+    private route: ActivatedRoute,
+    private material: MaterialService
+  ) {
+  }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -28,9 +31,11 @@ export class LoginComponent implements OnInit {
 
     this.subscriptions.add(this.route.queryParams.subscribe(queryParams => {
       if (queryParams['registered']) {
-
+        this.material.toast('Теперь вы можете зайти в систему используя свои данные');
       } else if (queryParams['accessDenied']) {
-
+        this.material.toast('Для начала авторизируйтесь в системе');
+      } else if (queryParams['sessionFailed']) {
+        this.material.toast('Пожалуйста войдите в систему ещё раз');
       }
     }));
   }
@@ -39,11 +44,14 @@ export class LoginComponent implements OnInit {
     this.form.disable();
     this.subscriptions.add(this.service
       .login(this.form.value)
-      .subscribe(res => {
-        this.router.navigate([AppRoutes.OVERVIEW])
-      }, (error) => {
-        this.form.enable();
-      }));
+      .subscribe(
+        res => {
+          this.router.navigate([AppRoutes.MAIN]);
+        },
+        (error) => {
+          this.form.enable();
+          this.material.toast(error);
+        }));
   }
 
   ngOnDestroy() {
