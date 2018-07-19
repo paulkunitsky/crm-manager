@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-categories-form',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoriesFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) {
+  }
+
+  isNew = true;
+  subscriptions = new Subscription();
 
   ngOnInit() {
+    this.subscriptions.add(this.route.params.subscribe(params => {
+      if (params['id']) {
+        this.isNew = false;
+      }
+    }))
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.unsubscribe();
   }
 
 }

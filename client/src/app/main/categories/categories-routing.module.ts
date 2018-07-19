@@ -1,13 +1,15 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {CreateCategoryComponent} from './create-category/create-category.component';
 import {ViewCategoryComponent} from './view-category/view-category.component';
 import {ViewCategoriesComponent} from './view-categories/view-categories.component';
+import {CategoriesFormComponent} from './categories-form/categories-form.component';
+import {EditCategoryComponent} from './edit-category/edit-category.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', component: ViewCategoriesComponent},
-  {path: 'new', component: CreateCategoryComponent},
-  {path: ':id', component: ViewCategoryComponent}
+  {path: 'new', component: CategoriesFormComponent},
+  {path: ':id', component: ViewCategoryComponent},
+  {path: ':id/edit', component: EditCategoryComponent}
 ];
 
 @NgModule({

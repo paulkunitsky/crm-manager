@@ -6,6 +6,7 @@ import {ViewCategoryComponent} from './view-category/view-category.component';
 import {ViewCategoriesComponent} from './view-categories/view-categories.component';
 import {PositionsFormComponent} from './categories-form/positions-form/positions-form.component';
 import {CategoriesFormComponent} from './categories-form/categories-form.component';
+import { EditCategoryComponent } from './edit-category/edit-category.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import {CategoriesFormComponent} from './categories-form/categories-form.compone
     ViewCategoryComponent,
     ViewCategoriesComponent,
     PositionsFormComponent,
-    CategoriesFormComponent
+    CategoriesFormComponent,
+    EditCategoryComponent
   ]
 })
 export class CategoriesModule {
