@@ -5,8 +5,6 @@ import {Observable} from 'rxjs/Rx';
 import {tap} from 'rxjs/operators';
 import {LocalStorageService} from './local-storage.service';
 import {Router} from '@angular/router';
-import {AppRoutes} from '../../app.component';
-import {AuthRoutes} from '../../auth/auth.component';
 
 @Injectable()
 export class AuthService {
@@ -42,7 +40,7 @@ export class AuthService {
 
   logout(): Promise<any> {
     this.ls.setItem(this.ls.keys.TOKEN, null);
-    return this.router.navigate([AuthRoutes.LOGIN]);
+    return this.router.navigate(['/auth/login']);
   }
 
 }

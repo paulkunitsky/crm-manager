@@ -4,7 +4,6 @@ import {AuthService} from '../../shared/services/auth.service';
 import {Subscription} from 'rxjs/Subscription';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MaterialService} from '../../shared/services/material.service';
-import {AppRoutes} from '../../app.component';
 
 @Component({
   selector: 'app-login',
@@ -46,7 +45,7 @@ export class LoginComponent implements OnInit {
       .login(this.form.value)
       .subscribe(
         res => {
-          this.router.navigate([AppRoutes.MAIN]);
+          this.router.navigate(['/main']);
         },
         (error) => {
           this.form.enable();

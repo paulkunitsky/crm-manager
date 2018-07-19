@@ -123,12 +123,12 @@
   "schematics": {
     "@schematics/angular:component": {
       "spec": false,
-      "prefix": "",
+      "prefix": "app",
       "styleext": "css"
     },
     "@schematics/angular:directive": {
       "spec": false,
-      "prefix": ""
+      "prefix": "app"
     },
     "@schematics/angular:service": {
       "spec": false

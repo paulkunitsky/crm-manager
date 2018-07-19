@@ -4,7 +4,6 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Subscription} from 'rxjs/Subscription';
 import {Router} from '@angular/router';
 import {MaterialService} from '../../shared/services/material.service';
-import {AuthRoutes} from '../../shared/constants';
 
 @Component({
   selector: 'app-register',
@@ -34,7 +33,7 @@ export class RegisterComponent implements OnInit {
     this.service
       .register(this.form.value)
       .subscribe(() => {
-        this.router.navigate([AuthRoutes.LOGIN], {queryParams: {registered: true}});
+        this.router.navigate(['/auth/login'], {queryParams: {registered: true}});
       }, (error) => {
         form.enable();
         this.material.toast(error);

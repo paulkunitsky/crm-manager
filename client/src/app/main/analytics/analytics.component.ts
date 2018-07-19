@@ -1,9 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 
-export class AnalyticsRoutes {
-
-}
-
 @Component({
   selector: 'app-analytics',
   templateUrl: './analytics.component.html',
