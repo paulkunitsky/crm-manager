@@ -7,11 +7,13 @@ import {AnalyticsComponent} from './analytics/analytics.component';
 import {HistoryComponent} from './history/history.component';
 import {OrderComponent} from './order/order.component';
 import {CategoriesComponent} from './categories/categories.component';
+import {LoadingModule} from '../shared/modules/loading/loading.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    MainRoutingModule
+    MainRoutingModule,
+    LoadingModule
   ],
   declarations: [
     MainComponent,

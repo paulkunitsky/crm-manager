@@ -1,8 +1,8 @@
 import {ActivatedRouteSnapshot, CanActivate, CanActivateChild, Router, RouterStateSnapshot} from '@angular/router';
-import {Observable} from 'rxjs/Observable';
 import {Injectable} from '@angular/core';
 import {AuthService} from './auth.service';
-import {AppRoutes, AuthRoutes} from '../constants';
+import {AuthRoutes} from '../constants';
+import {AppRoutes} from '../../app.component';
 
 @Injectable()
 export class AuthGuardService implements CanActivate, CanActivateChild {
@@ -13,17 +13,16 @@ export class AuthGuardService implements CanActivate, CanActivateChild {
   ) {
   }
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     if (this.service.isAuthorized()) {
-      return Observable.of(true);
+      return true;
     } else {
       this.router.navigate([AppRoutes.AUTH, AuthRoutes.LOGIN], {queryParams: {accessDenied: true}});
-      return Observable.of(false);
+      return false;
     }
   }
 
-  canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
+  canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     return this.canActivate(route, state);
   }
-
 }

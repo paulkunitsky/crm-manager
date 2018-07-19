@@ -4,7 +4,7 @@ import {AuthService} from '../../shared/services/auth.service';
 import {Subscription} from 'rxjs/Subscription';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MaterialService} from '../../shared/services/material.service';
-import {AppRoutes} from '../../shared/constants';
+import {AppRoutes} from '../../app.component';
 
 @Component({
   selector: 'app-login',
@@ -50,7 +50,6 @@ export class LoginComponent implements OnInit {
         },
         (error) => {
           this.form.enable();
-          this.material.toast(error);
         }));
   }
 

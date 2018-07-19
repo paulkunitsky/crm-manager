@@ -6,24 +6,26 @@ import {LocalStorageService} from './shared/services/local-storage.service';
 import {HttpClientModule} from '@angular/common/http';
 import {AuthService} from './shared/services/auth.service';
 import {AuthGuardService} from './shared/services/auth-guard.service';
-import {HttpInterceptorsModule} from './shared/modules/http-interceptors/http-interceptors.module';
 import {MaterialService} from './shared/services/material.service';
+import {CategoriesService} from './shared/services/categories.service';
+import {InterceptorsModule} from './shared/modules/interceptors/interceptors.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    HttpInterceptorsModule
+    InterceptorsModule,
   ],
   providers: [
     LocalStorageService,
     AuthService,
     AuthGuardService,
-    MaterialService
+    MaterialService,
+    CategoriesService,
   ],
   bootstrap: [AppComponent]
 })

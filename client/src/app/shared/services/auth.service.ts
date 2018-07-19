@@ -5,11 +5,8 @@ import {Observable} from 'rxjs/Rx';
 import {tap} from 'rxjs/operators';
 import {LocalStorageService} from './local-storage.service';
 import {Router} from '@angular/router';
-import {AppRoutes, AuthRoutes} from '../constants';
-
-function handleError(err) {
-  return Observable.throw(err.error.message);
-}
+import {AppRoutes} from '../../app.component';
+import {AuthRoutes} from '../../auth/auth.component';
 
 @Injectable()
 export class AuthService {
@@ -28,13 +25,11 @@ export class AuthService {
           this.ls.setItem(this.ls.keys.TOKEN, res.token);
         })
       )
-      .catch(handleError);
   }
 
   register(user: User): Observable<any> {
     return this.http
       .post('/api/auth/register', user)
-      .catch(handleError);
   }
 
   getToken(): string|null {
@@ -47,7 +42,7 @@ export class AuthService {
 
   logout(): Promise<any> {
     this.ls.setItem(this.ls.keys.TOKEN, null);
-    return this.router.navigate([AppRoutes.AUTH, AuthRoutes.LOGIN]);
+    return this.router.navigate([AuthRoutes.LOGIN]);
   }
 
 }

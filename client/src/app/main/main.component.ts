@@ -1,7 +1,15 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AuthService} from '../shared/services/auth.service';
-import {MainRoutes} from '../shared/constants';
 import {MaterialService} from '../shared/services/material.service';
+import {AppRoutes} from '../app.component';
+
+export class MainRoutes {
+  static OVERVIEW = [AppRoutes.MAIN, 'overview'];
+  static ANALYTICS = [AppRoutes.MAIN, 'analytics'];
+  static HISTORY = [AppRoutes.MAIN, 'history'];
+  static ORDER = [AppRoutes.MAIN, 'order'];
+  static CATEGORIES = [AppRoutes.MAIN, 'categories'];
+}
 
 @Component({
   selector: 'app-overview',
