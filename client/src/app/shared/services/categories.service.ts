@@ -12,4 +12,22 @@ export class CategoriesService {
   getAll(): Observable<any> {
     return this.http.get('/api/category');
   }
+
+  getOneById(id: number): Observable<any> {
+    return this.http.get('/api/category' + id);
+  }
+
+  postOne(name: string, image?: File): Observable<any> {
+    const formData = new FormData();
+    formData.append('imageSrc', image, image.name);
+    formData.append('name', name);
+    return this.http.post('/api/category', formData);
+  }
+
+  update(id: string, name: string, image?: File): Observable<any> {
+    const formData = new FormData();
+    formData.append('imageSrc', image, image.name);
+    formData.append('name', name);
+    return this.http.patch('/api/category/' + id, formData);
+  }
 }

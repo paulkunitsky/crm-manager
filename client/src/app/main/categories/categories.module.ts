@@ -7,12 +7,14 @@ import {ViewCategoriesComponent} from './view-categories/view-categories.compone
 import {PositionsFormComponent} from './categories-form/positions-form/positions-form.component';
 import {CategoriesFormComponent} from './categories-form/categories-form.component';
 import { EditCategoryComponent } from './edit-category/edit-category.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     CategoriesRoutingModule,
-    LoadingModule
+    LoadingModule,
+    ReactiveFormsModule
   ],
   declarations: [
     ViewCategoryComponent,
