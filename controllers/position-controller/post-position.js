@@ -8,7 +8,7 @@ module.exports.postPosition = async function (req, res) {
       name: req.body.name,
       cost: req.body.cost,
       category: req.body.category,
-      userId: user.id
+      userId: req.user.id
     });
     res.status(201).json(await position.save());
   } catch (error) {

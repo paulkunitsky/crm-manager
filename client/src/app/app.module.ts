@@ -9,6 +9,7 @@ import {AuthGuardService} from './shared/services/auth-guard.service';
 import {MaterialService} from './shared/services/material.service';
 import {CategoriesService} from './shared/services/categories.service';
 import {InterceptorsModule} from './shared/modules/interceptors/interceptors.module';
+import {PositionsService} from './shared/services/positions.service';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import {InterceptorsModule} from './shared/modules/interceptors/interceptors.mod
     AuthGuardService,
     MaterialService,
     CategoriesService,
+    PositionsService
   ],
   bootstrap: [AppComponent]
 })

@@ -10,3 +10,11 @@ export interface Category {
   userId?: string;
   _id?: string;
 }
+
+export interface Position {
+  name: string;
+  cost: number;
+  userId?: string;
+  categoryId: string;
+  _id?: string;
+}

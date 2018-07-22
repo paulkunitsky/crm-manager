@@ -6,7 +6,7 @@
 <div class="row" *ngIf="categories$ | async as categories; else loaderRef">
   <div class="col s12">
     <div class="collection" *ngIf="categories.length !== 0; else messageRef">
-      <a class="collection-item active" *ngFor="let category of categories" [routerLink]="['main', 'categories', category._id]">{{category.name}}</a>
+      <a class="collection-item active" *ngFor="let category of categories" [routerLink]="[category._id]">{{category.name}}</a>
     </div>
     <ng-template #messageRef>
       <div class="center">У вас нет ни одной категории</div>

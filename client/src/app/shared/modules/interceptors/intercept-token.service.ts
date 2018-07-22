@@ -4,7 +4,7 @@ import {AuthService} from '../../services/auth.service';
 import {Observable} from 'rxjs/Observable';
 import {Router} from '@angular/router';
 import {catchError} from 'rxjs/operators';
-import {of} from 'rxjs/internal/observable/of';
+import {throwError} from 'rxjs/internal/observable/throwError';
 
 @Injectable()
 export class InterceptTokenService implements HttpInterceptor {
@@ -24,7 +24,7 @@ export class InterceptTokenService implements HttpInterceptor {
         if (error.status === 401) {
           this.router.navigate(['/auth/login'], {queryParams: {sessionFailed: true}});
         }
-        return of(error.error.message);
+        return throwError(error);
       })
     );
   }

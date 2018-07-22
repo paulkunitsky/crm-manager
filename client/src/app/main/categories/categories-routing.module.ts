@@ -8,7 +8,7 @@ import {EditCategoryComponent} from './edit-category/edit-category.component';
 const routes: Routes = [
   {path: '', pathMatch: 'full', component: ViewCategoriesComponent},
   {path: 'new', component: CategoriesFormComponent},
-  {path: ':id', component: ViewCategoryComponent},
+  {path: ':id', component: CategoriesFormComponent},
   {path: ':id/edit', component: EditCategoryComponent}
 ];
 

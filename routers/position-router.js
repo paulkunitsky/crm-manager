@@ -2,6 +2,7 @@ const {deletePosition} = require('../controllers/position-controller/delete-posi
 const {patchPosition} = require('../controllers/position-controller/patch-position');
 const {getCategory} = require('../controllers/category-controller/get-category');
 const {postPosition} = require('../controllers/position-controller/post-position');
+const {getPosition} = require('../controllers/position-controller/get-position');
 const {authRequiredMiddleware} = require('../middleware/auth-required-middleware');
 
 module.exports.getPositionRouter = function (express) {
@@ -11,6 +12,7 @@ module.exports.getPositionRouter = function (express) {
     .post(authRequiredMiddleware, postPosition);
 
   router.route('/:id')
+    .get(authRequiredMiddleware, getPosition)
     .patch(authRequiredMiddleware, patchPosition)
     .delete(authRequiredMiddleware, deletePosition);
 

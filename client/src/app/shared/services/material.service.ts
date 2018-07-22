@@ -2,6 +2,12 @@ import {ElementRef, Injectable} from '@angular/core';
 
 declare var M;
 
+export interface MaterialModal {
+  open?(): void
+  close?(): void
+  destroy?(): void
+}
+
 @Injectable()
 export class MaterialService {
   toast(message: string) {
@@ -14,5 +20,9 @@ export class MaterialService {
 
   updateTextFields() {
     M.updateTextFields();
+  }
+
+  initModal(ref: ElementRef): MaterialModal {
+    return M.Modal.init(ref.nativeElement);
   }
 }
