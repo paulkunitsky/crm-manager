@@ -5,15 +5,15 @@ import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {AuthComponent} from './auth.component';
 import {ReactiveFormsModule} from '@angular/forms';
-import {SwsTabsModule} from '../shared/modules/sws-tabs/sws-tabs.module';
 import {TestComponent} from './test/test.component';
+import {TabsModule} from '../shared/modules/tabs/tabs.module';
 
 @NgModule({
   imports: [
     CommonModule,
     AuthRoutingModule,
     ReactiveFormsModule,
-    SwsTabsModule,
+    TabsModule,
   ],
   declarations: [
     LoginComponent,
