@@ -16,7 +16,7 @@ import {PositionsService} from './shared/services/positions.service';
     AppComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule,
     InterceptorsModule,

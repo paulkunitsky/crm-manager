@@ -20,12 +20,15 @@
     "@angular/http": "^6.0.9",
     "@angular/platform-browser": "^6.0.9",
     "@angular/platform-browser-dynamic": "^6.0.9",
+    "@angular/platform-server": "^6.0.9",
     "@angular/router": "^6.0.9",
+    "@nguniversal/common": "^6.0.0",
+    "@nguniversal/module-map-ngfactory-loader": "^6.0.0",
     "core-js": "^2.4.1",
     "materialize-css": "^1.0.0-rc.2",
     "rxjs": "^6.2.2",
-    "zone.js": "^0.8.19",
-    "rxjs-compat": "^6.0.0-rc.0"
+    "rxjs-compat": "^6.0.0-rc.0",
+    "zone.js": "^0.8.19"
   },
   "devDependencies": {
     "@angular/cli": "^6.0.8",
